@@ -16,6 +16,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install system libs required by Qt (libEGL, GL, xkb, dbus)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libxkbcommon0 libdbus-1-3 \
+                                  libglib2.0-0 libfontconfig1
+
       - name: Install Qt (PySide6) for the Windows UI tests
         run: |
           python -m pip install --upgrade pip
