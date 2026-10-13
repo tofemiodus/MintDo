@@ -1,0 +1,227 @@
+/* MintDo style sheet — dark palette.
+   Same rules as light.css; only the palette above differs. */
+
+@define-color bg #1f231f;
+@define-color surface #272c27;
+@define-color surface_alt #222623;
+@define-color border #383e38;
+@define-color text #e7ebe4;
+@define-color text_dim #98a096;
+@define-color accent #87cf3e;
+@define-color accent_bright #9cdd52;
+@define-color danger #ef6a6d;
+@define-color warn #eab04b;
+@define-color info #6fa8e0;
+
+window {
+  background: @bg;
+  color: @text;
+  font-size: 13px;
+}
+
+/* ---------------- header bar ---------------- */
+headerbar {
+  background: @surface;
+  border-bottom: 1px solid @border;
+  min-height: 46px;
+  box-shadow: none;
+}
+headerbar entry {
+  background: @surface_alt;
+  border: none;
+  border-radius: 8px;
+  min-height: 24px;
+}
+headerbar .title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* ---------------- sidebar ---------------- */
+.sidebar {
+  background: @surface_alt;
+  border-right: 1px solid @border;
+}
+.sidebar list { background: transparent; }
+.sidebar list row {
+  padding: 5px 8px;
+  margin: 1px 6px;
+  border-radius: 8px;
+  background: transparent;
+}
+.sidebar list row:hover { background: alpha(@text, 0.07); }
+.sidebar list row:selected,
+.sidebar list row.selected {
+  background: alpha(@accent, 0.16);
+}
+.sidebar .section-title {
+  font-size: 10px;
+  font-weight: bold;
+  color: @text_dim;
+  letter-spacing: 1.2px;
+  margin: 14px 14px 4px 14px;
+}
+.sidebar .count {
+  font-size: 11px;
+  color: @text_dim;
+}
+.sidebar .sep-line {
+  color: @border;
+  margin: 6px 12px;
+}
+
+/* ---------------- task list ---------------- */
+.quick-add {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+  margin: 10px 12px 4px 12px;
+  padding: 6px 4px 6px 12px;
+  min-height: 22px;
+}
+.quick-add:focus { border-color: @accent; }
+.quick-hint {
+  font-size: 11px;
+  color: @text_dim;
+  margin: 0 16px 6px 16px;
+}
+.view-title {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 12px 14px 0 14px;
+}
+.view-sub {
+  font-size: 11.5px;
+  color: @text_dim;
+  margin: 0 14px 4px 14px;
+}
+
+list row.task {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+  margin: 5px 12px;
+  padding: 8px 10px;
+}
+list row.task:hover { border-color: alpha(@accent, 0.55); }
+list row.task:selected {
+  background: @surface;
+  border: 1px solid @accent;
+}
+list row.task label.task-title {
+  font-size: 14px;
+  color: @text;
+}
+list row.task label.task-title.done {
+  color: @text_dim;
+}
+.muted { color: @text_dim; }
+
+.meta-chip {
+  font-size: 10.5px;
+  padding: 1px 7px;
+  border-radius: 9px;
+  background: @surface_alt;
+  color: @text_dim;
+}
+.meta-chip.due-today {
+  background: alpha(@accent, 0.18);
+  color: @accent;
+}
+.meta-chip.overdue {
+  background: alpha(@danger, 0.16);
+  color: @danger;
+}
+.meta-chip.p1 { background: alpha(@danger, 0.16); color: @danger; font-weight: bold; }
+.meta-chip.p2 { background: alpha(@warn, 0.18); color: @warn; font-weight: bold; }
+.meta-chip.p3 { background: alpha(@info, 0.16); color: @info; }
+.meta-chip.p4 { background: alpha(@text_dim, 0.14); color: @text_dim; }
+.meta-chip.tag { background: alpha(@info, 0.12); color: @info; }
+
+.star { font-size: 15px; color: @text_dim; padding: 2px; min-width: 0; }
+.star.on { color: @warn; }
+
+/* ---------------- empty states ---------------- */
+.empty-title { font-size: 17px; font-weight: bold; color: @text_dim; }
+.empty-sub { font-size: 12.5px; color: @text_dim; }
+
+/* ---------------- detail panel ---------------- */
+.detail {
+  background: @surface;
+  border-left: 1px solid @border;
+}
+.detail .heading {
+  font-size: 10.5px;
+  font-weight: bold;
+  color: @text_dim;
+  letter-spacing: 1px;
+  margin-top: 12px;
+}
+.detail entry { border-radius: 8px; }
+.detail textview { background: @surface_alt; }
+.textview-frame {
+  background: @surface_alt;
+  border: 1px solid @border;
+  border-radius: 8px;
+}
+.prio-group button {
+  padding: 3px 0;
+  min-width: 34px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.prio-group button.suggested-action { color: @surface; }
+
+/* ---------------- toast ---------------- */
+.toast {
+  background: @text;
+  border-radius: 10px;
+  padding: 6px 8px 6px 14px;
+  margin: 12px;
+  border: 1px solid alpha(@text, 0.4);
+}
+.toast label { color: @bg; }
+.toast button {
+  background: transparent;
+  border: none;
+  color: @accent_bright;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+/* ---------------- stats popover ---------------- */
+.stats-pop {
+  padding: 14px;
+}
+.stat-number {
+  font-size: 21px;
+  font-weight: bold;
+  color: @accent;
+}
+.stat-label {
+  font-size: 10.5px;
+  color: @text_dim;
+}
+
+/* ---------------- misc ---------------- */
+viewport, list { background: transparent; }
+textview text {
+  background: @surface_alt;
+  color: @text;
+}
+scrollbar { background: transparent; }
+scrollbar slider {
+  background: alpha(@text, 0.25);
+  border-radius: 4px;
+  min-width: 9px;
+  margin: 2px;
+}
+scrollbar slider:hover { background: alpha(@text, 0.45); }
+separator { background: @border; }
+popover.background { background: @surface; border: 1px solid @border; }
+menu { background: @surface; border: 1px solid @border; }
+menu menuitem:hover { background: alpha(@text, 0.08); }
+
+/* dark-specific adjustments */
+.prio-group button.suggested-action { color: #1f231f; }
+headerbar entry image { color: @text_dim; }
